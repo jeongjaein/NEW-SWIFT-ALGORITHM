@@ -10,11 +10,25 @@ import Foundation
 
 func solution(_ answers:[Int]) -> [Int] {
     
+    func compareAnswers(pattern : [Int]){
+        for i in answers{
+            if i == pattern[flag]{
+                score[scoreflag] += 1
+            }
+            flag += 1
+            if flag == pattern.count {
+                flag = 0
+            }
+        }
+        flag = 0
+        scoreflag += 1
+    }
     
 
     compareAnswers(pattern: firstpattern)
     compareAnswers(pattern: secondpattern)
     compareAnswers(pattern: thirdpattern)
+    print(score)
     
     for i in 0..<3{
         if score[i] == score.max()!{
@@ -23,30 +37,22 @@ func solution(_ answers:[Int]) -> [Int] {
     }
     
     return answer
+    
+    
 }
 
 var score : [Int] = [0,0,0]
+var scoreflag = 0
 var flag = 0
 var answer : [Int] = []
 let firstpattern = [1,2,3,4,5]
 let secondpattern = [2,1,2,3,2,4,2,5]
 let thirdpattern = [3,3,1,1,2,2,4,4,5,5]
 
-func compareAnswers(pattern : [Int]){
-    for i in answers{
-        if i == pattern[flag]{
-            score[0] += 1
-        }
-        flag += 1
-        if flag == pattern.count {
-            flag = 0
-        }
-    }
-    flag = 0
-}
 
 
-var answers : [Int] = [1,2,3,4,5,1,2,3,4,5,1,2]
+
+var answers : [Int] = [1,3,2,4,2]
 print(solution(answers))
 
 
