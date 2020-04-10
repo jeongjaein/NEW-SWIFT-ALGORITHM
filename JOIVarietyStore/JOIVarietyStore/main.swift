@@ -10,9 +10,15 @@ import Foundation
 
 func solution (price : Int) -> Int{
     
+    
+    
+    
+    
     var exchange = 1000 - price
     var flag = 0
     var count = 0
+    
+    
     while true{
         if exchange >= yen[flag]{
             
@@ -24,13 +30,16 @@ func solution (price : Int) -> Int{
             }
         }
         flag += 1
-        
     }
     
     
     return count
     
 }
+
+
+
+
 
 
 
