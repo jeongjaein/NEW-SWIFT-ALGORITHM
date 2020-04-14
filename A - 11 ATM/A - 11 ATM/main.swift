@@ -12,11 +12,9 @@ var timeSum = 0
 var user = Int(readLine()!)
 var useAtmTime  = readLine()
 var intArray = ((useAtmTime!.components(separatedBy: " ")).compactMap { Int($0) }).sorted()
-
 for i in 0...intArray.count - 1{
     for j in 0...i{
         timeSum += intArray[j]
     }
 }
-
 print(timeSum)
