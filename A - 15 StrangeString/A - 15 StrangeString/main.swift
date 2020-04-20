@@ -1,6 +1,6 @@
 //
 //  main.swift
-//  A - 15 124Country
+//  A - 15 StrangeString
 //
 //  Created by 정재인 on 2020/04/20.
 //  Copyright © 2020 정재인. All rights reserved.
