@@ -22,7 +22,6 @@ var positive : [Int] = []
 
 for _ in 0..<flag!{
     n = Int(readLine()!)!
-    
     if n == 0 {
         if negative.isEmpty == true || positive.isEmpty == true{
             
@@ -61,13 +60,16 @@ for _ in 0..<flag!{
         }
         
     }
-    else if n > 0{
-        positive.append(n)
-    }
-        
     else{
-        negative.append(n)
+        if n > 0{
+            positive.append(n)
+        }
+            
+        else{
+            negative.append(n)
+        }
     }
+    
     
     
 }
