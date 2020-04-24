@@ -39,6 +39,8 @@ func solution(_ num:Int) -> Int {
     var target = num
     
     while result < 500 {
+        print(result)
+        print(target)
         if target != 1{
             if target % 2 == 0{
                 target /= 2
@@ -58,5 +60,5 @@ func solution(_ num:Int) -> Int {
 
 
 
-print(solution(6))
+print(solution(626331))
 
