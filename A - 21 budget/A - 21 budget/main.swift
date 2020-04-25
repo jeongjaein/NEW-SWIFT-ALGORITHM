@@ -25,24 +25,19 @@
 import Foundation
 
 func solution(_ d:[Int], _ budget:Int) -> Int {
-    
     var d2 = d
     var budget2 = budget
     var result = 0
     for i in 0...d2.count - 1{
-        
-        
-        if budget2 >= min{
+        if budget2 >= d2.min()!{
             budget2 -= d2.min()!
             d2.remove(at: d2.firstIndex(of: d2.min()!)!)
-            result += 1}
-            
+            result += 1
+        }
         else{
             break
         }
     }
     return result
 }
-
-
 print(solution([2,2,3,3],10))
