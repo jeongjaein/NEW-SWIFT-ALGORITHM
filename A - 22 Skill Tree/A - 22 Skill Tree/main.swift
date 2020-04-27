@@ -18,66 +18,44 @@
 //스킬은 알파벳 대문자로 표기하며, 모든 문자열은 알파벳 대문자로만 이루어져 있습니다.
 //스킬 순서와 스킬트리는 문자열로 표기합니다.
 //예를 들어, C → B → D 라면 CBD로 표기합니다
+
 //선행 스킬 순서 skill의 길이는 1 이상 26 이하이며, 스킬은 중복해 주어지지 않습니다.
+
 //skill_trees는 길이 1 이상 20 이하인 배열입니다.
+
 //skill_trees의 원소는 스킬을 나타내는 문자열입니다.
+
 //skill_trees의 원소는 길이가 2 이상 26 이하인 문자열이며, 스킬이 중복해 주어지지 않습니다.
+
 //입출력 예
 //skill                skill_trees           return
+
 //"CBD"    ["BACDE", "CBADF", "AECB", "BDA"]    2
 //
 
 import Foundation
 
+
 func solution(_ skill:String, _ skill_trees:[String]) -> Int {
-    var stringArray = skill.map {String($0)}
     
-    var compareArray : [String] = []
     var possibleSkillTreeCount = 0
     
-    for i in skill_trees{
-        compareArray = i.map {String($0)}
-        if compareArray.firstIndex(of: stringArray[0]) != -1{
+    for elementsOfskill_trees in skill_trees{
+        var test = String() //개꿀 코드
+        
+        for compareSkill in elementsOfskill_trees{
             
-            for i in 0..<stringArray.count - 1 {
-                if let compare = compareArray.firstIndex(of: stringArray[i]){
-                    
-                    if let  compare2 = compareArray.firstIndex(of: stringArray[i+1]){
-                        if compare > compare2{
-                            break
-                        }
-                        else{
-                            if i == stringArray.count - 2{
-                                print(compareArray,i)
-                                possibleSkillTreeCount += 1
-                            }
-                        }
-                    }
-                    else{
-                        for k in i + 1..<stringArray.count{
-                            if let compare2 = compareArray.firstIndex(of: stringArray[k]){
-                                break
-                            }
-                            else if k == stringArray.count{
-                                possibleSkillTreeCount += 1
-                            }
-                        }
-                        
-                        
-                    }
-                }
-                else{
-                    for k in i + 1..<stringArray.count{
-                        if let compare2 = compareArray.firstIndex(of: stringArray[k]){
-                            break
-                        }
-                    }
-                }
+            if skill.contains(compareSkill){
+                
+                test += String(compareSkill)
             }
+        }
+        if skill.starts(with: test){
+            possibleSkillTreeCount += 1
         }
     }
     return possibleSkillTreeCount
 }
 
-print(solution("CBD", ["BACDE", "CBADF", "BDA","AECB" ]))
+print(solution("CBD", ["BACDE", "CBADF", "AECB", "BDA","CEFD"]))
 
