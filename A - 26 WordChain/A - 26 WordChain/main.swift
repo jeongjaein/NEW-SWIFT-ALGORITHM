@@ -24,18 +24,34 @@ func solution(_ n:Int, _ words:[String]) -> [Int] {
                 if words[i+1].count > 0{
                 }
                 else{
-                    return i > n ? [(i+2) % n,(i+2 / n)+1] : [i+1,1]
+                    if i+2 % n == 0{
+                        return i+1 > n ? [(i+2) % n,((i+2) / n)] : [i+2,1]
+                    }
+                    else{
+                        return i+1 > n ? [(i+2) % n,((i+2) / n)+1] : [i+2,1]
+                    }
+                    
                 }
             }
             else{
-                return i > n ? [(i+2) % n,(i+2 / n)+1] : [i+1,1]
+                if i+2 % n == 0{
+                    return i+1 > n ? [(i+2) % n,((i+2) / n)] : [i+2,1]
+                }
+                else{
+                    return i+1 > n ? [(i+2) % n,((i+2) / n)+1] : [i+2,1]
+                }
             }
         }
         else{
-            return i > n ? [(i+2) % n,(i+2 / n)+1] : [i+1,1]
+            if i+2%n == 0{
+                return i+1 > n ? [(i+2) % n,((i+2) / n)] : [i+2,1]
+            }
+            else{
+                return i+1 > n ? [(i+2) % n,((i+2) / n)+1] : [i+2,1]
+            }
         }
     }
     return [0, 0]
 }
 
-print(solution(3, ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]))
+print(solution(3, ["tank", "kick", "kiw", "wheel", "ldd", "dream", "mother", "robot", "tank"]))
